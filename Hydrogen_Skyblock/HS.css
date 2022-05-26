@@ -1,6 +1,6 @@
 body{
     text-align: center;
-    animation: one 5s;
+    
 }
 @keyframes one
 {
@@ -8,4 +8,7 @@ body{
     50%  {top: 50px;}
     75%  {top: 75px;}
     100% {top: 0px;}
+}
+div{   
+    animation: one 5s;
 }
