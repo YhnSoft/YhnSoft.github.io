@@ -5,14 +5,44 @@
     <meta charset="UTF-8">
     <title>YhnSoft</title>
     <link rel="icon" type="image/png" href="img/logo.png">
-    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"></script>
+    <script src="js/htmx.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body>
-<header>
+<body style="background-color: #9ad9eb; margin: 0px; padding: 0px;">
+    <header>
 
-</header>
-<main>
+    </header>
+    <main>
+        <div id="box" style="position: relative;width: 100vh;height: 100vh;">
+            <img style="position: absolute" src="img/logo.png" id="logo" alt="logo" height="64" width="64"/>
+        </div>
 
-</main>
+    </main>
 </body>
+<script type="text/javascript">
+    let img = document.querySelector('img')
+    let x = 0, y = 0                                    // 元素离页面水平、垂直方向距离
+    let xflag = true, yflag = true                      // 设置水平、垂直标志位
+    setInterval(() => {
+        // 获取页面宽高
+        let w = document.body.offsetWidth
+        let h = document.body.offsetHeight
+
+        // 判断图片碰壁的四种情况
+        if (x <= 0) xflag = true                        // 碰到左边
+        if (y <= 0) yflag = true                        // 碰到上边
+        if (x >= w - img.offsetWidth) xflag = false     // 碰到右边
+        if (y >= h - img.offsetHeight) yflag = false    // 碰到下边
+        xflag ? x++ : x--
+        xflag ? x++ : x--
+        yflag ? y++ : y--
+        yflag ? y++ : y--
+
+        // 设置图片的位置
+        img.style.left = x + 'px'
+        img.style.top = y + 'px'
+        console.log(x, y);
+    }, 10)
+</script>
 </html>
