@@ -5,70 +5,17 @@
     <meta charset="UTF-8">
     <title>YhnSoft</title>
     <link rel="icon" type="image/png" href="img/logo.png">
-    <script src="js/htmx.min.js"></script>
-    <script src="js/main.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body style="background-color: #9ad9eb; margin: 0px; padding: 0px;">
+<body style="background-color: #9ad9eb; margin: 0; padding: 0;list-style-type:none;">
     <header>
-
+        <ul style="display:inline;">
+            <li style="float:left;display:inline;"><img src="img/logo.png" alt="logo"></li>
+            <li style="float:left;display:inline;"><img src="img/logot.png" alt="logo"></li>
+        </ul>
     </header>
     <main>
-        <div style="position: relative;width: 100vh;height: 100vh;">
-            <img style="position: absolute" src="img/logo.png" id="logo" alt="logo" height="128" width="128"/>
-            <img style="position: absolute" src="img/face.png" id="face" alt="face" height="64" width="64"/>
-        </div>
+
     </main>
 </body>
-<script type="text/javascript">
-    let img = document.getElementById("logo");
 
-    let x = 0, y = 0                                    // 元素离页面水平、垂直方向距离
-    let xflag = true, yflag = true                      // 设置水平、垂直标志位
-    let xf = 0, yf = 0                                    // 元素离页面水平、垂直方向距离
-    let xfflag = true, yfflag = true
-    x = Math.random()*document.body.offsetWidth
-    y = Math.random()*document.body.offsetHeight
-    setInterval(() => {
-        // 获取页面宽高
-        let w = document.body.offsetWidth
-        let h = document.body.offsetHeight
-
-        // 判断图片碰壁的四种情况
-        if (x <= 0) xflag = true                        // 碰到左边
-        if (y <= 0) yflag = true                        // 碰到上边
-        if (x >= w - img.offsetWidth) xflag = false     // 碰到右边
-        if (y >= h - img.offsetHeight) yflag = false    // 碰到下边
-        xflag ? x++ : x--
-        xflag ? x++ : x--
-        yflag ? y++ : y--
-        yflag ? y++ : y--
-
-        // 设置图片的位置
-        img.style.left = x + 'px'
-        img.style.top = y + 'px'
-    }, 10)
-    let face = document.getElementById("face");
-    xf = Math.random()*document.body.offsetWidth
-    yf = Math.random()*document.body.offsetHeight
-    setInterval(() => {
-        // 获取页面宽高
-        let w = document.body.offsetWidth
-        let h = document.body.offsetHeight
-
-        // 判断图片碰壁的四种情况
-        if (xf <= 0) xfflag = true                        // 碰到左边
-        if (yf <= 0) yfflag = true                        // 碰到上边
-        if (xf >= w - face.offsetWidth) xfflag = false     // 碰到右边
-        if (yf >= h - face.offsetHeight) yfflag = false    // 碰到下边
-        xfflag ? xf++ : xf--
-        xfflag ? xf++ : xf--
-        yfflag ? yf++ : yf--
-        yfflag ? yf++ : yf--
-
-        // 设置图片的位置
-        face.style.left = xf + 'px'
-        face.style.top = yf + 'px'
-    }, 10)
-</script>
 </html>
